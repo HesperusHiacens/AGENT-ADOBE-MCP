@@ -1,0 +1,55 @@
+{
+  "name": "agent-aftereffects-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that drives a local Adobe After Effects on Windows through its ExtendScript entry point (AfterFX.exe -r). 20 tools, zero dependencies.",
+  "type": "module",
+  "bin": {
+    "agent-aftereffects-mcp": "src/index.mjs"
+  },
+  "main": "src/index.mjs",
+  "files": [
+    "src/",
+    "scripts/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.mjs",
+    "selftest": "node scripts/selftest.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "after-effects",
+    "aftereffects",
+    "adobe",
+    "extendscript",
+    "aerender",
+    "automation",
+    "agent",
+    "ai-agent",
+    "claude",
+    "cursor",
+    "dsh"
+  ],
+  "os": [
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HesperusHiacens/AGENT-ADOBE-MCP.git",
+    "directory": "packages/aftereffects"
+  },
+  "homepage": "https://github.com/HesperusHiacens/AGENT-ADOBE-MCP/tree/main/packages/aftereffects#readme",
+  "bugs": {
+    "url": "https://github.com/HesperusHiacens/AGENT-ADOBE-MCP/issues"
+  },
+  "author": "HesperusHiacens",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

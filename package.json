@@ -1,0 +1,40 @@
+{
+  "name": "agent-adobe-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MCP servers that drive a local Adobe Photoshop and After Effects through COM + ExtendScript, with no plugins to install.",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "selftest:photoshop": "node packages/photoshop/scripts/selftest.mjs",
+    "selftest:aftereffects": "node packages/aftereffects/scripts/selftest.mjs",
+    "selftest": "npm run selftest:photoshop && npm run selftest:aftereffects",
+    "probe:photoshop": "node packages/photoshop/scripts/probe.mjs",
+    "install:photoshop": "node packages/photoshop/scripts/install.mjs --target dsh"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "os": [
+    "win32"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "adobe",
+    "photoshop",
+    "after-effects",
+    "extendscript",
+    "com",
+    "automation",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HesperusHiacens/AGENT-ADOBE-MCP.git"
+  },
+  "homepage": "https://github.com/HesperusHiacens/AGENT-ADOBE-MCP#readme",
+  "license": "MIT"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "agent-photoshop-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that drives a local Adobe Photoshop on Windows through a persistent PowerShell COM bridge (ExtendScript). 23 tools, zero dependencies.",
+  "type": "module",
+  "bin": {
+    "agent-photoshop-mcp": "src/index.mjs"
+  },
+  "main": "src/index.mjs",
+  "files": [
+    "src/",
+    "scripts/",
+    "examples/",
+    "docs/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.mjs",
+    "selftest": "node scripts/selftest.mjs",
+    "probe": "node scripts/probe.mjs",
+    "install-dsh": "node scripts/install.mjs --target dsh",
+    "print-config": "node scripts/install.mjs --print"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "photoshop",
+    "adobe",
+    "extendscript",
+    "com",
+    "com-automation",
+    "automation",
+    "agent",
+    "ai-agent",
+    "claude",
+    "cursor",
+    "dsh"
+  ],
+  "os": [
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HesperusHiacens/AGENT-ADOBE-MCP.git",
+    "directory": "packages/photoshop"
+  },
+  "homepage": "https://github.com/HesperusHiacens/AGENT-ADOBE-MCP/tree/main/packages/photoshop#readme",
+  "bugs": {
+    "url": "https://github.com/HesperusHiacens/AGENT-ADOBE-MCP/issues"
+  },
+  "author": "HesperusHiacens",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
