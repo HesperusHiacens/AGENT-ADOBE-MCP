@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  CEP manifest for the Premiere Pro MCP bridge panel.
+
+  Premiere Pro has no `-r` command-line scripting entry point (After Effects does),
+  so ExtendScript only exists inside the running application. This extension opens a
+  panel that hosts a local TCP socket; the MCP server sends JSX over that socket and
+  gets the result back.
+
+  The shape below mirrors the extensions that actually load on Premiere 2026
+  (CSXS 12.0, a wide host version range, and an <Icons> block) — narrower ranges and
+  a lower CSXS requirement are silently ignored.
+
+  Install: <Premiere install>\CEP\extensions\com.agentadobe.premiere.bridge\
+  Enable unsigned extensions: HKCU\Software\Adobe\CSXS.12\PlayerDebugMode = "1"
+-->
+<ExtensionManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="7.0"
+                   ExtensionBundleId="com.agentadobe.premiere.bridge"
+                   ExtensionBundleVersion="1.0.0"
+                   ExtensionBundleName="AGENT-ADOBE-MCP Premiere Bridge">
+  <Author>AGENT-ADOBE-MCP</Author>
+  <ExtensionList>
+    <Extension Id="com.agentadobe.premiere.bridge.panel" Version="1.0.0"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PPRO" Version="[9.0,99.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="12.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.agentadobe.premiere.bridge.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <ScriptPath>./jsx/host.jsx</ScriptPath>
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+            <Parameter>--allow-file-access</Parameter>
+            <Parameter>--allow-file-access-from-files</Parameter>
+            <Parameter>--disable-lcd-text</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>AGENT-ADOBE-MCP Bridge</Menu>
+          <Geometry>
+            <Size>
+              <Height>160</Height>
+              <Width>340</Width>
+            </Size>
+            <MaxSize>
+              <Height>700</Height>
+              <Width>900</Width>
+            </MaxSize>
+            <MinSize>
+              <Height>120</Height>
+              <Width>300</Width>
+            </MinSize>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
